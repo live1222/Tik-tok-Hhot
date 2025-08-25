@@ -3,7 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Video Preview</title>
+  <title>Video Hot 18++</title>
+
+  <!-- Open Graph (Facebook, WhatsApp, Telegram) -->
+  <meta property="og:title" content="Video Preview - Mature Content">
+  <meta property="og:description" content="Video ini hanya untuk 18+. Klik untuk menonton.">
+  <meta property="og:image" content="https://ik.imagekit.io/gmbh5tyqu/d1997270a2705f3da1bd0d174fa9c428.jpg?updatedAt=1756128909186">
+  <meta property="og:url" content="https://domainmu.com/video.html">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Video Preview - Mature Content">
+  <meta name="twitter:description" content="Video ini hanya untuk 18+. Klik untuk menonton.">
+  <meta name="twitter:image" content="https://ik.imagekit.io/gmbh5tyqu/d1997270a2705f3da1bd0d174fa9c428.jpg?updatedAt=1756128909186">
+
   <style>
     body {
       margin: 0;
@@ -28,7 +42,7 @@
 
     /* Popup Styles */
     .popup-overlay {
-      display: none;
+      display: none; /* diperbaiki */
       position: fixed;
       top: 0; left: 0;
       width: 100vw;
@@ -36,7 +50,6 @@
       background: rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(4px);
       z-index: 9999;
-      display: flex;
       justify-content: center;
       align-items: center;
       animation: fadeIn 0.3s ease-in-out;
@@ -122,9 +135,8 @@
     <p>This video contains mature content. Are you over 18 and want to continue?</p>
     <div class="popup-buttons">
       <button onclick="closePopup()">CANCELLED</button>
-      <!-- link iklannmu dibawah ini -->
+      <!-- link iklanmu -->
       <button onclick="window.location.href='https://principlespite.com/r1dpiyp75?key=a673c3783b4b5dfa58b7044fe309845a'">CONTINUE!!</button>
-
     </div>
   </div>
 </div>
@@ -132,16 +144,21 @@
 <script>
   function closePopup() {
     document.getElementById('popup-overlay').style.display = 'none';
+    document.getElementById('video').pause(); // stop video total
   }
 
   document.addEventListener("DOMContentLoaded", function () {
     const video = document.getElementById("video");
     const popup = document.getElementById("popup-overlay");
+    let popupShown = false;
 
     video.addEventListener("play", function () {
       setTimeout(function () {
-        video.pause();
-        popup.style.display = "flex";
+        if (!popupShown) {
+          video.pause();
+          popup.style.display = "flex";
+          popupShown = true;
+        }
       }, 5000); // 5 detik
     });
   });
